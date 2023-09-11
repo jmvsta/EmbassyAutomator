@@ -5,6 +5,7 @@ import jakarta.annotation.PreDestroy
 import org.openqa.selenium.By
 import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
+import org.openqa.selenium.chrome.ChromeOptions
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.scheduling.annotation.Scheduled
@@ -21,8 +22,7 @@ class EmbassyMonitor(
     @Value("\${message}") private val message: String,
 ) {
     private val logger = LoggerFactory.getLogger(EmbassyMonitor::class.java)
-//    private val driver: WebDriver = ChromeDriver(ChromeOptions().addArguments("--headless=chrome"))
-    private val driver: WebDriver = ChromeDriver()
+    private val driver: WebDriver = ChromeDriver(ChromeOptions().addArguments("--headless=chrome"))
 
     @PostConstruct
     fun init() {

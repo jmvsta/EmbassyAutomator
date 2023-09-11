@@ -1,0 +1,11 @@
+apiToken: ${API_TOKEN}
+address1: ${ADDRESS1}
+address2: ${ADDRESS2}
+userEmail: ${USER_MAIL}
+userPassword: ${USER_PASSWORD}
+message: ${MESSAGE}
+spring:
+  docker:
+    compose:
+      enabled: false
+#      file: docker-compose.yml

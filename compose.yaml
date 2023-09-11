@@ -1,0 +1,12 @@
+#version: '3.8'
+#services:
+#  app:
+#    image:
+#    ports:
+#      - '8080:8080'
+#    volumes:
+#      - db:/data/app
+#volumes:
+#  db:
+#    driver:
+#      local

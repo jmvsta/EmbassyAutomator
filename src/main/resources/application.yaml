@@ -1,9 +1,9 @@
-apiToken: ${API_TOKEN}
-address1: ${ADDRESS1}
-address2: ${ADDRESS2}
-userEmail: ${USER_MAIL}
-userPassword: ${USER_PASSWORD}
-message: ${MESSAGE}
+apiToken: ${sm://projects/embassyautomator/secrets/API_TOKEN}
+address1: ${sm://projects/embassyautomator/secrets/ADDRESS1}
+address2: ${sm://projects/embassyautomator/secrets/ADDRESS2}
+userEmail: ${sm://projects/embassyautomator/secrets/USER_MAIL}
+userPassword: ${sm://projects/embassyautomator/secrets/USER_PASSWORD}
+message: ${sm://projects/embassyautomator/secrets/MESSAGE}
 spring:
   docker:
     compose:

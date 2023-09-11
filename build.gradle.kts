@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import com.google.cloud.tools.gradle.appengine.appyaml.AppEngineAppYamlExtension
 
 plugins {
     idea
@@ -6,6 +7,8 @@ plugins {
     id("io.spring.dependency-management") version "1.1.3"
     kotlin("jvm") version "1.9.10"
     kotlin("plugin.spring") version "1.9.10"
+    id("com.google.cloud.tools.appengine") version "2.4.4"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 group = "com.jmvsta"
@@ -42,15 +45,24 @@ dependencies {
     implementation("org.seleniumhq.selenium:selenium-java:4.12.1")
     testImplementation("ch.qos.logback:logback-classic:1.4.11")
     runtimeOnly("io.github.microutils:kotlin-logging-jvm:3.0.5")
+    implementation("com.google.cloud:spring-cloud-gcp-starter-secretmanager:4.7.2")
+
 }
+
+configure<AppEngineAppYamlExtension> {
+    stage {
+        setArtifact("build/libs/${project.name}-${project.version}.jar")
+    }
+    deploy {
+        version = "1"
+        projectId = "embassyautomator"
+    }
+}
+
 
 tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs += "-Xjsr305=strict"
         jvmTarget = "17"
     }
-}
-
-tasks.withType<Test> {
-    useJUnitPlatform()
 }

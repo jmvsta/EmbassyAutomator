@@ -1,0 +1,2 @@
+runtime: java17
+entrypoint: 'java -jar EmbassyAutomator-0.0.1-SNAPSHOT.jar'
